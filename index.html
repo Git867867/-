@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор никнеймов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nickname-display {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            min-height: 40px;
+        }
+        
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .copied-message {
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Генератор никнеймов</h1>
+        
+        <div class="nickname-display" id="nicknameDisplay">
+            Нажмите "Сгенерировать"
+        </div>
+        
+        <div>
+            <button onclick="generateNickname()">Сгенерировать</button>
+            <button onclick="copyNickname()" id="copyButton" disabled>Копировать</button>
+        </div>
+        
+        <div id="copiedMessage" class="copied-message" style="display: none;">
+            Никнейм скопирован в буфер обмена!
+        </div>
+    </div>
+
+    <script>
+        const prefixes = [
+            'Тёмный', 'Светлый', 'Быстрый', 'Могучий', 'Хитрый', 'Великий',
+            'Невидимый', 'Огненный', 'Ледяной', 'Стальной', 'Бессмертный', 'Таинственный',
+            'Серебряный', 'Золотой', 'Бронзовый', 'Железный', 'Каменный', 'Небесный'
+        ];
+
+        const suffixes = [
+            'Воин', 'Маг', 'Лучник', 'Волшебник', 'Рыцарь', 'Дракон',
+            'Тигр', 'Волк', 'Орёл', 'Феникс', 'Единорог', 'Демон',
+            'Ангел', 'Призрак', 'Самурай', 'Ниндзя', 'Викинг', 'Пират',
+            'Король', 'Император', 'Повелитель', 'Странник', 'Изгой', 'Герой'
+        ];
+
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function generateNickname() {
+            const prefix = getRandomElement(prefixes);
+            const suffix = getRandomElement(suffixes);
+            const nickname = `${prefix}_${suffix}`;
+            
+            document.getElementById('nicknameDisplay').textContent = nickname;
+            document.getElementById('copyButton').disabled = false;
+            document.getElementById('copiedMessage').style.display = 'none';
+        }
+
+        function copyNickname() {
+            const nickname = document.getElementById('nicknameDisplay').textContent;
+            
+            navigator.clipboard.writeText(nickname).then(() => {
+                const message = document.getElementById('copiedMessage');
+                message.style.display = 'block';
+                message.textContent = `Никнейм "${nickname}" скопирован в буфер обмена!`;
+                
+                document.getElementById('copyButton').disabled = true;
+                
+                setTimeout(() => {
+                    message.style.display = 'none';
+                }, 3000);
+            }).catch(err => {
+                alert('Ошибка при копировании: ' + err);
+            });
+        }
+
+        // Генерируем первый никнейм при загрузке
+        generateNickname();
+    </script>
+</body>
+</html>
