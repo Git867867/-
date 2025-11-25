@@ -27,7 +27,7 @@
 
 <div align="center">
   <a href="https://ibb.co/ZzhSX7sM">
-    <img src="[https://i.ibb.co/j2y3m54/image.png](https://i.ibb.co/j2y3m54/image.png)" alt="Главная страница - Генерация никнеймов и копирование" width="80%">
+    <img src="https://i.ibb.co/JWY6Rp9c/image.png" alt="Главная страница - Генерация никнеймов и копирование" width="80%">
   </a>
   <p><em>Главная страница с генерацией никнеймов</em></p>
 </div>
