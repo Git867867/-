@@ -27,9 +27,9 @@
 
 <div align="center">
   <a href="https://ibb.co/ZzhSX7sM">
-    <img src="https://i.ibb.co/j2y3m54/image.png" alt="Главная страница - выбор эмоций и история записей" width="80%">
+    <img src="[https://i.ibb.co/j2y3m54/image.png](https://i.ibb.co/j2y3m54/image.png)" alt="Главная страница - Генерация никнеймов и копирование" width="80%">
   </a>
-  <p><em>Главная страница с интуитивным выбором эмоций и историей ваших записей</em></p>
+  <p><em>Главная страница с генерацией никнеймов</em></p>
 </div>
 
 ## Выводы по выполненной работе
